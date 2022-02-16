@@ -5,7 +5,7 @@ import { Dimensions } from 'react-native';
 
 export default function CameraDemo() {
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(Camera.Constants.Type.front);
 
   useEffect(() => {
     (async () => {
@@ -23,20 +23,7 @@ export default function CameraDemo() {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type} ratio={"4:3"}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-
-            }}>
-            <Text style={styles.text}> {type  === Camera.Constants.Type.back ? 'Front': 'Back'} </Text>
-          </TouchableOpacity>
-        </View>
+        
       </Camera>
     </View>
   );
@@ -46,8 +33,12 @@ export default function CameraDemo() {
 
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
     camera: {
-      minHeight: Dimensions.get('window').height - 300
+      minHeight: Dimensions.get('window').height - 300,
+      width : Dimensions.get('window').width > 768 ? '50%' : Dimensions.get('window').width
     },
     button: {
       backgroundColor: 'white',

@@ -20,7 +20,8 @@
     "expo-camera": "~12.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@expo/webpack-config": "^0.16.18"
   },
   "private": true
 }
